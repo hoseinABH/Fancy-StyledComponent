@@ -56,30 +56,33 @@ const TodoForm = ({ onSubmit, edit }) => {
     <Form autoComplete="off" onSubmit={handleSubmit}>
       {edit ? (
         <>
-          <Input
-            onChange={(e) => setInput(e.target.value)}
-            type="text"
-            placeholder="Update Your Todo"
-            value={input}
-            name="text"
-            ref={inputRef}
-            edit={edit}
-          />
-
+          <label>
+            <Input
+              onChange={(e) => setInput(e.target.value)}
+              type="text"
+              placeholder="Update Your Todo"
+              value={input}
+              name="text"
+              ref={inputRef}
+              edit={edit}
+            />
+          </label>
           <Button edit={edit} type="submit">
             Update todo
           </Button>
         </>
       ) : (
         <>
-          <Input
-            onChange={(e) => setInput(e.target.value)}
-            type="text"
-            placeholder="Add a Todo"
-            value={input}
-            name="text"
-            ref={inputRef}
-          />
+          <label>
+            <Input
+              onChange={(e) => setInput(e.target.value)}
+              type="text"
+              placeholder="Add a Todo"
+              value={input}
+              name="text"
+              ref={inputRef}
+            />
+          </label>
 
           <Button edit={edit} type="submit">
             Add todo
