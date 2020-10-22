@@ -35,6 +35,10 @@ const Button = styled.button`
     edit
       ? ' linear-gradient( 90deg,rgba(20, 159, 255, 1) 0%,rgba(17, 122, 255, 1) 100%)'
       : 'linear-gradient(90deg,rgba(93, 12, 255, 1) 0%, rgba(155, 0, 250, 1) 100%)'};
+
+  @media screen and (max-width: 480px) {
+    padding: 7px;
+  }
 `;
 const TodoForm = ({ onSubmit, edit }) => {
   const [input, setInput] = React.useState(edit ? edit.value : '');
@@ -57,6 +61,7 @@ const TodoForm = ({ onSubmit, edit }) => {
       {edit ? (
         <>
           <label>
+            ""
             <Input
               onChange={(e) => setInput(e.target.value)}
               type="text"
@@ -74,6 +79,7 @@ const TodoForm = ({ onSubmit, edit }) => {
       ) : (
         <>
           <label>
+            ""
             <Input
               onChange={(e) => setInput(e.target.value)}
               type="text"
