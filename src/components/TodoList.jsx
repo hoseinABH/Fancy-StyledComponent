@@ -3,8 +3,18 @@ import {
   getTodoItemsFromLocalStorage,
   saveTodoItemsToLocalStorage,
 } from '../utils/helper';
-import Todo from './Todo';
 import TodoForm from './TodoForm';
+import styled from 'styled-components';
+import Skeleton from '@yisheng90/react-loading';
+
+const Todo = React.lazy(() => import('./Todo'));
+
+const SkeletonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 
 const TodoList = () => {
   const [todos, setTodos] = React.useState(
@@ -53,12 +63,25 @@ const TodoList = () => {
     <div>
       <h1>Whats the plan for Today</h1>
       <TodoForm onSubmit={addTodo} />
-      <Todo
-        todos={todos}
-        completeTodo={completeTodo}
-        removeTodo={removeTodo}
-        updateTodo={updateTodo}
-      />
+      <React.Suspense
+        fallback={
+          <SkeletonContainer>
+            <Skeleton
+              color="rgba(25,67,89,0.3)"
+              width="90%"
+              height={50}
+              rows={6}
+            />
+          </SkeletonContainer>
+        }
+      >
+        <Todo
+          todos={todos}
+          completeTodo={completeTodo}
+          removeTodo={removeTodo}
+          updateTodo={updateTodo}
+        />
+      </React.Suspense>
     </div>
   );
 };

@@ -14,6 +14,9 @@ const Container = styled.div`
   margin: 128px auto;
   border-radius: 10px;
   padding-bottom: 32px;
+  cursor: url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png')
+      39 39,
+    auto;
 
   @media screen and (max-width: 480px) {
     width: 340px;
